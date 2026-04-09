@@ -788,8 +788,8 @@
     }
 
     .exp-list li {
-        display: grid;
-        grid-template-columns: 16px 1fr;
+        display: flex;
+        align-items: flex-start;
         gap: 10px;
         font-size: 13.5px;
         color: var(--white-2);
@@ -800,6 +800,7 @@
         content: '↗';
         color: var(--lime);
         font-weight: 700;
+        flex-shrink: 0;
         font-size: 11px;
         margin-top: 4px;
     }
