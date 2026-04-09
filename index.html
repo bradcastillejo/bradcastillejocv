@@ -727,6 +727,10 @@
         border-radius: var(--r);
         padding: 32px 36px;
         transition: var(--t);
+        display: grid;
+        grid-template-columns: 1fr 188px;
+        gap: 32px;
+        align-items: start;
     }
 
     .exp-card:hover {
@@ -734,13 +738,13 @@
         background: var(--black-3);
     }
 
-    .exp-top {
+    .exp-main { min-width: 0; }
+
+    .exp-aside {
         display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 16px;
-        flex-wrap: wrap;
-        margin-bottom: 4px;
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-end;
     }
 
     .exp-company {
@@ -749,6 +753,7 @@
         font-weight: 800;
         color: var(--white);
         letter-spacing: -0.3px;
+        margin-bottom: 4px;
     }
 
     .exp-period {
@@ -761,6 +766,7 @@
         color: var(--lime);
         white-space: nowrap;
         letter-spacing: 0.3px;
+        display: inline-block;
     }
 
     .exp-role {
@@ -769,13 +775,6 @@
         letter-spacing: 2px;
         text-transform: uppercase;
         color: var(--white-3);
-        margin-bottom: 16px;
-    }
-
-    .exp-summary {
-        font-size: 14px;
-        color: var(--white-2);
-        line-height: 1.75;
         margin-bottom: 20px;
     }
 
@@ -783,15 +782,16 @@
         list-style: none;
         display: flex;
         flex-direction: column;
-        gap: 9px;
-        margin-bottom: 22px;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
     }
 
     .exp-list li {
-        display: flex;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 16px 1fr;
         gap: 10px;
-        font-size: 14px;
+        font-size: 13.5px;
         color: var(--white-2);
         line-height: 1.65;
     }
@@ -800,9 +800,8 @@
         content: '↗';
         color: var(--lime);
         font-weight: 700;
-        flex-shrink: 0;
-        font-size: 12px;
-        margin-top: 3px;
+        font-size: 11px;
+        margin-top: 4px;
     }
 
     .exp-list li strong { color: var(--white); font-weight: 600; }
@@ -810,7 +809,8 @@
     .chip-row {
         display: flex;
         flex-wrap: wrap;
-        gap: 7px;
+        gap: 6px;
+        justify-content: flex-end;
     }
 
     .chip {
@@ -1219,6 +1219,8 @@
         .tl-line { display: none; }
         .exp-item { padding-left: 0; }
         .tl-dot { display: none; }
+        .exp-card { grid-template-columns: 1fr; gap: 20px; }
+        .exp-aside { align-items: flex-start; flex-direction: row; flex-wrap: wrap; gap: 12px; }
         .contact-box { padding: 48px 28px; }
         .section { padding: 72px 0; }
         .stat { padding-right: 16px; margin-right: 16px; }
@@ -1414,32 +1416,31 @@
             <div class="exp-item reveal">
                 <div class="tl-dot">🔗</div>
                 <div class="exp-card">
-                    <div class="exp-top">
-                        <div>
-                            <div class="exp-company">Algorand</div>
-                            <div class="exp-role">Growth Marketer</div>
-                        </div>
-                        <div class="exp-period">2025 — Mar 2026</div>
+                    <div class="exp-main">
+                        <div class="exp-company">Algorand</div>
+                        <div class="exp-role">Growth Marketer</div>
+                        <ul class="exp-list">
+                            <li>Ran international paid media campaigns across multiple global markets, managing a large budget across paid social and crypto-native ad networks</li>
+                            <li>Managed the <strong>Algoland Quest Series</strong> — the largest retail campaign in Algorand's history — driving record-breaking on-chain engagement</li>
+                            <li>Built a <strong>complete tracking and analytics stack</strong> from scratch to measure campaign efficiency, wallet connects, and end-to-end conversions</li>
+                            <li>Deployed Web3 growth tools including <strong>Addressable, Galxe, LunarCrush, and Cookie3</strong> to target crypto-native audiences, run quest campaigns, track social sentiment, and analyze on-chain user behaviour</li>
+                            <li>Directed creative and media agencies executing multi-channel campaigns across paid social and Web3 ad networks</li>
+                            <li>Worked cross-functionally with ecosystem partners and community teams to align growth, education, and engagement strategies</li>
+                        </ul>
                     </div>
-                    <p class="exp-summary">Algorand is an energy-efficient, quantum-secure, single-layer blockchain. As Growth Marketer, I owned global paid media and growth strategy — managing a large international budget across campaigns spanning multiple markets, with a focus on retail user acquisition, on-chain engagement, and developer community growth.</p>
-                    <ul class="exp-list">
-                        <li>Ran international paid media campaigns across multiple global markets, managing a large budget across paid social and crypto-native ad networks</li>
-                        <li>Managed the <strong>Algoland Quest Series</strong> — the largest retail campaign in Algorand's history — driving record-breaking on-chain engagement</li>
-                        <li>Built a <strong>complete tracking and analytics stack</strong> from scratch to measure campaign efficiency, wallet connects, and end-to-end conversions</li>
-                        <li>Deployed Web3 growth tools including <strong>Addressable, Galxe, LunarCrush, and Cookie3</strong> to target crypto-native audiences, run quest campaigns, track social sentiment, and analyze on-chain user behaviour</li>
-                        <li>Directed creative and media agencies executing multi-channel campaigns across paid social and Web3 ad networks</li>
-                        <li>Worked cross-functionally with ecosystem partners and community teams to align growth, education, and engagement strategies</li>
-                    </ul>
-                    <div class="chip-row">
-                        <span class="chip">Blockchain Growth</span>
-                        <span class="chip">Analytics Stack</span>
-                        <span class="chip">Paid Social</span>
-                        <span class="chip">Crypto Ad Networks</span>
-                        <span class="chip">Addressable</span>
-                        <span class="chip">Galxe</span>
-                        <span class="chip">LunarCrush</span>
-                        <span class="chip">Cookie3</span>
-                        <span class="chip">Community Growth</span>
+                    <div class="exp-aside">
+                        <div class="exp-period">2025 — Mar 2026</div>
+                        <div class="chip-row">
+                            <span class="chip">Blockchain Growth</span>
+                            <span class="chip">Analytics Stack</span>
+                            <span class="chip">Paid Social</span>
+                            <span class="chip">Crypto Ad Networks</span>
+                            <span class="chip">Addressable</span>
+                            <span class="chip">Galxe</span>
+                            <span class="chip">LunarCrush</span>
+                            <span class="chip">Cookie3</span>
+                            <span class="chip">Community Growth</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1448,26 +1449,25 @@
             <div class="exp-item reveal d1">
                 <div class="tl-dot">⚡</div>
                 <div class="exp-card">
-                    <div class="exp-top">
-                        <div>
-                            <div class="exp-company">Chiliz</div>
-                            <div class="exp-role">Paid Media Specialist</div>
-                        </div>
-                        <div class="exp-period">2023 — 2025</div>
+                    <div class="exp-main">
+                        <div class="exp-company">Chiliz</div>
+                        <div class="exp-role">Paid Media Specialist</div>
+                        <ul class="exp-list">
+                            <li>Developed a <strong>proprietary crypto marketing framework</strong> unifying all acquisition channels into a single, performance-measurable view</li>
+                            <li>Designed and implemented end-to-end <strong>tracking systems and attribution models</strong> purpose-built for Web3 marketing campaigns</li>
+                            <li>Planned and executed multiple large-scale <strong>KOL (Key Opinion Leader) campaigns</strong>, significantly expanding community reach and brand awareness</li>
+                            <li>Integrated <strong>AI-powered tools</strong> to enhance targeting, personalization, and campaign automation across all active channels</li>
+                        </ul>
                     </div>
-                    <p class="exp-summary">Chiliz is the global leader in sports blockchain technology. I owned user acquisition across international paid media — running crypto ad networks, building attribution models, and executing KOL campaigns to grow Chiliz's user base and developer community worldwide.</p>
-                    <ul class="exp-list">
-                        <li>Developed a <strong>proprietary crypto marketing framework</strong> unifying all acquisition channels into a single, performance-measurable view</li>
-                        <li>Designed and implemented end-to-end <strong>tracking systems and attribution models</strong> purpose-built for Web3 marketing campaigns</li>
-                        <li>Planned and executed multiple large-scale <strong>KOL (Key Opinion Leader) campaigns</strong>, significantly expanding community reach and brand awareness</li>
-                        <li>Integrated <strong>AI-powered tools</strong> to enhance targeting, personalization, and campaign automation across all active channels</li>
-                    </ul>
-                    <div class="chip-row">
-                        <span class="chip">Crypto Advertising</span>
-                        <span class="chip">Attribution Modeling</span>
-                        <span class="chip">KOL Campaigns</span>
-                        <span class="chip">AI Marketing Tools</span>
-                        <span class="chip">User Acquisition</span>
+                    <div class="exp-aside">
+                        <div class="exp-period">2023 — 2025</div>
+                        <div class="chip-row">
+                            <span class="chip">Crypto Advertising</span>
+                            <span class="chip">Attribution Modeling</span>
+                            <span class="chip">KOL Campaigns</span>
+                            <span class="chip">AI Marketing Tools</span>
+                            <span class="chip">User Acquisition</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1476,28 +1476,27 @@
             <div class="exp-item reveal d2">
                 <div class="tl-dot">🏢</div>
                 <div class="exp-card">
-                    <div class="exp-top">
-                        <div>
-                            <div class="exp-company">Edelman DXI</div>
-                            <div class="exp-role">Senior Paid Media Executive</div>
-                        </div>
-                        <div class="exp-period">2022 — 2023</div>
+                    <div class="exp-main">
+                        <div class="exp-company">Edelman DXI</div>
+                        <div class="exp-role">Senior Paid Media Executive</div>
+                        <ul class="exp-list">
+                            <li>Owned end-to-end paid media for <strong>HP, AstraZeneca, and NWRI</strong> — managing their accounts simultaneously across Meta, Google Ads, TikTok, Twitter/X, and LinkedIn</li>
+                            <li>Managed client <strong>ad budgets exceeding $500,000</strong>, delivering performance-driven campaigns with full transparency and rigorous reporting</li>
+                            <li>Coordinated daily with client teams and internal stakeholders across <strong>USA, Spain, and UK</strong> — bridging agency delivery and client expectations across time zones</li>
+                            <li>Drove <strong>department-level process improvements</strong>, establishing standardized reporting cadences and workflow optimizations</li>
+                            <li>Translated complex performance data into clear, actionable insights for both agency leadership and client stakeholders</li>
+                        </ul>
                     </div>
-                    <p class="exp-summary">Edelman DXI is the digital performance arm of Edelman — the world's largest PR firm. I was the day-to-day paid media lead for three major clients simultaneously, responsible for strategy, execution, and results across a $500K+ joint budget.</p>
-                    <ul class="exp-list">
-                        <li>Owned end-to-end paid media for <strong>HP, AstraZeneca, and NWRI</strong> — managing their accounts simultaneously across Meta, Google Ads, TikTok, Twitter/X, and LinkedIn</li>
-                        <li>Managed client <strong>ad budgets exceeding $500,000</strong>, delivering performance-driven campaigns with full transparency and rigorous reporting</li>
-                        <li>Coordinated daily with client teams and internal stakeholders across <strong>USA, Spain, and UK</strong> — bridging agency delivery and client expectations across time zones</li>
-                        <li>Drove <strong>department-level process improvements</strong>, establishing standardized reporting cadences and workflow optimizations</li>
-                        <li>Translated complex performance data into clear, actionable insights for both agency leadership and client stakeholders</li>
-                    </ul>
-                    <div class="chip-row">
-                        <span class="chip">Meta Ads</span>
-                        <span class="chip">Google Ads</span>
-                        <span class="chip">LinkedIn Ads</span>
-                        <span class="chip">TikTok Ads</span>
-                        <span class="chip">$500K+ Budget</span>
-                        <span class="chip">International Teams</span>
+                    <div class="exp-aside">
+                        <div class="exp-period">2022 — 2023</div>
+                        <div class="chip-row">
+                            <span class="chip">Meta Ads</span>
+                            <span class="chip">Google Ads</span>
+                            <span class="chip">LinkedIn Ads</span>
+                            <span class="chip">TikTok Ads</span>
+                            <span class="chip">$500K+ Budget</span>
+                            <span class="chip">International Teams</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1506,30 +1505,29 @@
             <div class="exp-item reveal d3">
                 <div class="tl-dot">🌱</div>
                 <div class="exp-card">
-                    <div class="exp-top">
-                        <div>
-                            <div class="exp-company">Digital Marketing Agency</div>
-                            <div class="exp-role">Founder &amp; Director</div>
-                        </div>
-                        <div class="exp-period">2017 — Mar 2022</div>
+                    <div class="exp-main">
+                        <div class="exp-company">Digital Marketing Agency</div>
+                        <div class="exp-role">Founder &amp; Director</div>
+                        <ul class="exp-list">
+                            <li>Founded and grew the agency to a <strong>team of 4 specialists</strong>, managing operations, client relationships, service delivery, and P&amp;L</li>
+                            <li>Served prominent market leaders and large corporations across South America, building long-term partnerships through consistent, measurable performance</li>
+                            <li>Managed and optimized campaigns on <strong>Meta, Instagram, and Google</strong>, with deep expertise in Shopping campaigns and e-commerce growth</li>
+                            <li>Coordinated <strong>content strategy development and execution</strong> — aligning paid media with organic content for cohesive brand performance</li>
+                            <li>Continuously monitored platform trends and algorithm changes, <strong>adapting strategies proactively</strong> to maintain competitive performance for clients</li>
+                            <li>Delivered data-driven reporting via <strong>Google Analytics and Data Studio</strong>, translating performance into clear business decisions for clients</li>
+                            <li>Designed and built <strong>high-converting landing pages and e-commerce experiences</strong> to maximize campaign ROI from click to conversion</li>
+                        </ul>
                     </div>
-                    <p class="exp-summary">I founded this agency at 22. Within five years I had a team of four, a roster of major South American corporations, and a track record that earned me a seat at Edelman. It taught me how to win clients, build systems, and own the outcome — with no one to fall back on.</p>
-                    <ul class="exp-list">
-                        <li>Founded and grew the agency to a <strong>team of 4 specialists</strong>, managing operations, client relationships, service delivery, and P&amp;L</li>
-                        <li>Served prominent market leaders and large corporations across South America, building long-term partnerships through consistent, measurable performance</li>
-                        <li>Managed and optimized campaigns on <strong>Meta, Instagram, and Google</strong>, with deep expertise in Shopping campaigns and e-commerce growth</li>
-                        <li>Coordinated <strong>content strategy development and execution</strong> — aligning paid media with organic content for cohesive brand performance</li>
-                        <li>Continuously monitored platform trends and algorithm changes, <strong>adapting strategies proactively</strong> to maintain competitive performance for clients</li>
-                        <li>Delivered data-driven reporting via <strong>Google Analytics and Data Studio</strong>, translating performance into clear business decisions for clients</li>
-                        <li>Designed and built <strong>high-converting landing pages and e-commerce experiences</strong> to maximize campaign ROI from click to conversion</li>
-                    </ul>
-                    <div class="chip-row">
-                        <span class="chip">Agency Leadership</span>
-                        <span class="chip">E-commerce Growth</span>
-                        <span class="chip">Google Shopping</span>
-                        <span class="chip">Landing Pages</span>
-                        <span class="chip">Data Studio</span>
-                        <span class="chip">Client Management</span>
+                    <div class="exp-aside">
+                        <div class="exp-period">2017 — Mar 2022</div>
+                        <div class="chip-row">
+                            <span class="chip">Agency Leadership</span>
+                            <span class="chip">E-commerce Growth</span>
+                            <span class="chip">Google Shopping</span>
+                            <span class="chip">Landing Pages</span>
+                            <span class="chip">Data Studio</span>
+                            <span class="chip">Client Management</span>
+                        </div>
                     </div>
                 </div>
             </div>
